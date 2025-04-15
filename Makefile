@@ -1,30 +1,20 @@
 ##
 ## Simple Makefile pour tester le job Jenkins
+## Version simplifiée qui ne nécessite pas de compilateur
 ##
 
 NAME = test_program
 
-SRC = main.c
-OBJ = $(SRC:.c=.o)
-
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
-	@echo "Program $(NAME) compiled successfully!"
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+all:
+	@touch $(NAME)
+	@echo "Program $(NAME) created successfully!"
 
 clean:
-	rm -f $(OBJ)
-	@echo "Object files removed"
+	@echo "Cleaning..."
+	@echo "Object files cleaned"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 	@echo "Program $(NAME) removed"
 
 tests_run:
